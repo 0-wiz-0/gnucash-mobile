@@ -15,36 +15,36 @@ class Constants {
   static ThemeData lightTheme = ThemeData(
     backgroundColor: lightBG,
     primaryColor: lightPrimary,
-    accentColor: lightAccent,
+//    accentColor: lightAccent,
     scaffoldBackgroundColor: lightBG,
     appBarTheme: AppBarTheme(
       elevation: 0,
-      textTheme: TextTheme(
-        headline6: TextStyle(
-          color: Colors.black,
-          fontSize: 20,
-          fontWeight: FontWeight.w800,
-        ),
+      // textTheme: TextTheme(
+      //   headline6: TextStyle(
+      //     color: Colors.black,
+      //     fontSize: 20,
+      //     fontWeight: FontWeight.w800,
+      //   ),
+      // ),
       ),
-    ),
   );
 
   static ThemeData darkTheme = ThemeData(
     brightness: Brightness.dark,
     backgroundColor: darkBG,
     primaryColor: darkPrimary,
-    accentColor: darkAccent,
+//    accentColor: darkAccent,
     scaffoldBackgroundColor: darkBG,
     appBarTheme: AppBarTheme(
       backgroundColor: darkBG,
       elevation: 0,
-      textTheme: TextTheme(
-        headline6: TextStyle(
-          color: lightBG,
-          fontSize: 20,
-          fontWeight: FontWeight.w800,
-        ),
-      ),
+//      textTheme: TextTheme(
+//        headline6: TextStyle(
+//          color: lightBG,
+//          fontSize: 20,
+//          fontWeight: FontWeight.w800,
+//        ),
+//      ),
     ),
   );
 

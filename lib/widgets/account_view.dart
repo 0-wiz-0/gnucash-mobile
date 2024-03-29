@@ -11,7 +11,7 @@ import '../constants.dart';
 class AccountView extends StatelessWidget {
   final Account account;
 
-  AccountView({Key key, @required this.account}) : super(key: key);
+  AccountView(this.account, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class AccountView extends StatelessWidget {
           backgroundColor: Constants.darkBG,
           title: Text(this.account.fullName),
         ),
-        body: ListOfAccounts(accounts: this.account.children),
+        body: ListOfAccounts(this.account.children),
         floatingActionButton: Builder(builder: (context) {
           return FloatingActionButton(
             backgroundColor: Constants.darkBG,
@@ -60,7 +60,7 @@ class AccountView extends StatelessWidget {
         ),
         body: TabBarView(
           children: [
-            ListOfAccounts(accounts: this.account.children),
+            ListOfAccounts(this.account.children),
             TransactionsView(
                 transactions: Provider.of<TransactionsModel>(context,
                             listen: true)

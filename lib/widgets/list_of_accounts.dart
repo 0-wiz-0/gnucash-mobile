@@ -12,7 +12,7 @@ import 'account_view.dart';
 class ListOfAccounts extends StatelessWidget {
   final List<Account> accounts;
 
-  ListOfAccounts({Key key, @required this.accounts}) : super(key: key);
+  ListOfAccounts(this.accounts, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +39,7 @@ class ListOfAccounts extends StatelessWidget {
                 in transactionsModel.transactionsByAccountFullName.keys) {
               if (key.startsWith(_account.fullName)) {
                 _transactions.addAll(
-                    transactionsModel.transactionsByAccountFullName[key]);
+                    transactionsModel.transactionsByAccountFullName[key]!);
               }
             }
             final double _balance = _transactions.fold(0.0,
@@ -100,7 +100,7 @@ class ListOfAccounts extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => AccountView(account: _account),
+                      builder: (context) => AccountView(_account),
                     ),
                   );
                 }
