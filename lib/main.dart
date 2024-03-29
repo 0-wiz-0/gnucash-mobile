@@ -165,7 +165,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Provider.of<TransactionsModel>(context, listen: true)
                             .transactions,
                     builder:
-                        (context, AsyncSnapshot<List<Transaction>> snapshot) {
+                        (context, AsyncSnapshot<List<Transaction>?> snapshot) {
                       return ListTile(
                           title: Text(
                               'Delete ${snapshot.hasData ? snapshot.data!.length ~/ 2 : 0} Transaction(s)'),

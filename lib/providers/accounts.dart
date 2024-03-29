@@ -12,19 +12,19 @@ import 'package:shared_preferences/shared_preferences.dart';
 class Account {
   double balance = 0.0; // non-standard
   List<Account> children = []; // non-standard
-  String code;
-  String commodityM;
-  String commodityN;
-  String color;
-  String description;
-  String fullName;
-  bool hidden;
-  String notes;
-  String parentFullName; // non-standard
-  bool placeholder; // Whether transactions can be placed in this account?
-  bool tax;
-  String type;
-  String name;
+  String code= "";
+  String commodityM= "";
+  String commodityN= "";
+  String color= "";
+  String description= "";
+  String fullName= "";
+  bool hidden = false;
+  String notes= "";
+  String parentFullName= ""; // non-standard
+  bool placeholder = false; // Whether transactions can be placed in this account?
+  bool tax = false;
+  String type= "";
+  String name= "";
 
   Account.fromJson(Map<String, dynamic> json) {
     this.balance = json['balance'];
@@ -111,7 +111,7 @@ class AccountsModel extends ChangeNotifier {
 
   List<Account> _validTransactionAccounts = [];
 
-  Future<Account> get favoriteDebitAccount async {
+  Future<Account?> get favoriteDebitAccount async {
     final prefs = await _prefs;
     final favoriteDebitAccountString = prefs.getString('favoriteDebitAccount');
 
@@ -136,7 +136,7 @@ class AccountsModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<Account> get favoriteCreditAccount async {
+  Future<Account?> get favoriteCreditAccount async {
     final prefs = await _prefs;
     final favoriteCreditAccountString =
         prefs.getString('favoriteCreditAccount') ?? null;
@@ -215,7 +215,7 @@ class AccountsModel extends ChangeNotifier {
     for (var _account in _accounts) {
       if (_lookup.containsKey(_account.parentFullName)) {
         final _parent = _lookup[_account.parentFullName];
-        _parent.children.add(_account);
+        _parent!.children.add(_account);
       } else {
         _hierarchicalAccounts.add(_account);
       }

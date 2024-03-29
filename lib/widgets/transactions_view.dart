@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 class TransactionsView extends StatelessWidget {
   final List<Transaction> transactions;
 
-  TransactionsView({Key key, @required this.transactions}) : super(key: key);
+  TransactionsView(this.transactions, {Key? key}) : super(key: key);
 
 
   @override

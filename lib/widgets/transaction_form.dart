@@ -243,9 +243,9 @@ class _TransactionFormState extends State<TransactionForm> {
           onPressed: () {
             // Validate will return true if the form is valid, or false if
             // the form is invalid.
-            if (_key.currentState.validate()) {
+            if (_key.currentState!.validate()) {
               // Process data.
-              _key.currentState.save();
+              _key.currentState!.save();
 
               final id = UniqueKey().toString();
               _transactions[0].id = id;

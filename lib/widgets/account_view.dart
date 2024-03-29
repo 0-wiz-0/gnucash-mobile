@@ -62,7 +62,7 @@ class AccountView extends StatelessWidget {
           children: [
             ListOfAccounts(this.account.children),
             TransactionsView(
-                transactions: Provider.of<TransactionsModel>(context,
+                Provider.of<TransactionsModel>(context,
                             listen: true)
                         .transactionsByAccountFullName[this.account.fullName] ??
                     [])

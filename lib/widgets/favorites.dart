@@ -19,10 +19,10 @@ class Favorites extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                FutureBuilder<Account>(
+                FutureBuilder<Account?>(
                     future: Provider.of<AccountsModel>(context, listen: false)
                         .favoriteDebitAccount,
-                    builder: (context, AsyncSnapshot<Account> snapshot) {
+                    builder: (context, AsyncSnapshot<Account?> snapshot) {
                       return DropdownButton<Account>(
                         hint: Text("Favorite Debit Account"),
                         isExpanded: true,
@@ -37,12 +37,12 @@ class Favorites extends StatelessWidget {
                           );
                         }).toList(),
                         onChanged: (value) {
-                          accounts.setFavoriteDebitAccount(value);
+                          accounts.setFavoriteDebitAccount(value!);
                         },
                         value: snapshot.hasData
                             ? accounts.validTransactionAccounts.firstWhere(
                                 (account) =>
-                                    account.fullName == snapshot.data.fullName)
+                                    account.fullName == snapshot.data!.fullName)
                             : null,
                       );
                     }),
@@ -64,12 +64,12 @@ class Favorites extends StatelessWidget {
                           );
                         }).toList(),
                         onChanged: (value) {
-                          accounts.setFavoriteCreditAccount(value);
+                          accounts.setFavoriteCreditAccount(value!);
                         },
                         value: snapshot.hasData
                             ? accounts.validTransactionAccounts.firstWhere(
                                 (account) =>
-                                    account.fullName == snapshot.data.fullName)
+                                    account.fullName == snapshot.data!.fullName)
                             : null,
                       );
                     }),
